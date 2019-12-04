@@ -11,27 +11,40 @@ const phrases = [
     "Exercise is a must",
 ];
 
-var randomPhrase = phrases[ Math.floor( Math.random() * phrases.length )];
 
 // return a random phrase from an array
-const getRandomPhraseAsArray = arr => {
-
+function getRandomPhraseAsArray(arr) {
+    const randomPhrase = arr[ Math.floor( Math.random() * arr.length )];
+    return randomPhrase.split('');
 }
 
 // add the letters of a string to the display
-const addPhraseToDisplay = arr => {
 
+function addPhraseToDisplay(arr) {
+    const randomPhraseArray = getRandomPhraseAsArray(arr);
+    for (let i = 0; i < randomPhraseArray.length; i ++){
+       const ul = document.getElementById('phrase');
+       const li = document.createElement('li');
+       li.textContent = randomPhraseArray[i];
+       console.log(li);
+       if( li !== ' '){
+           li.className = 'letter';
+       } 
+       ul.appendChild(li);
+    }
 }
+
+addPhraseToDisplay(phrases);
 
 // check if a letter is in the phrase
-const checkLetter = button => {
+// function checkLetter (button) {
 
-}
+// }
 
 // check if the game has been won or lost
-const checkWin = () => {
+// const checkWin = () => {
 
-}
+// }
 
 // listen for the start game button to be pressed
 startButton.addEventListener('click', () => {
@@ -39,6 +52,6 @@ startButton.addEventListener('click', () => {
 });
 
 // listen for the onscreen keyboard to be clicked
-qwerty.addEventListener('click', e => {
+// qwerty.addEventListener('click', e => {
 
-});
+// });
