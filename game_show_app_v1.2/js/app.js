@@ -1,7 +1,7 @@
 const qwerty = document.getElementById('qwerty');
 const phrase = document.getElementById('phrase');
 var missed = 0;
-const startButton = document.getElementsByClassName('btn__reset');
+const startButton = document.querySelector('.btn__reset');
 const overlay = document.getElementById('overlay');
 const phrases = [
     "Grape juice is the best",
@@ -11,7 +11,7 @@ const phrases = [
     "Exercise is a must",
 ];
 
-
+var randomPhrase = phrases[ Math.floor( Math.random() * phrases.length )];
 
 // return a random phrase from an array
 const getRandomPhraseAsArray = arr => {
